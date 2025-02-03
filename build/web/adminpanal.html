@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <!doctype html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <title>Book Store</title>
+    <title>Admin panal</title>
     <meta name="viewport" content="width=device-width, initial-scale=1 , shrink-to-fit-no">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -30,65 +24,69 @@ and open the template in the editor.
         }
     </style>
 </head>
-    <body background="black">
+<body background="black">
     <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
         <div class="container-sm">
-            <a class="navbar-brand" href="opencart_home.html">Vaidai Book Store</a>
+            <a class="navbar-brand" href="HomePage.html">Zidio Task Management</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Search
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="findbooks.html">FIND BOOKS</a></li>
-                            <li><a class="dropdown-item" href="viewallbooks.jsp">VIEW ALL BOOKS</a></li>
-                            <li><a class="dropdown-item" href="bookreport.html">REPORT</a></li>
-                        </ul>
+                    <li class="nav-item">  
+                        
+                        
+                        <a class="nav-link" href="add_task.html">Add Task</a>
                     </li>
                     
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Edit Book
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="addbooks.html">ADD_BOOK</li>
-                            <li><a class="dropdown-item" href="updatebooks.html">UPDATE PRICE</li>
-                            <li><a class="dropdown-item" href="updatebookqty.html">UPDATE QTY</li>
-                            <li><a class="dropdown-item" href="deletebooks.html">DELETE BOOKS</a></li>
-                        </ul>
-                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="delete_task.html">Delete Task</a>
+                    </li>                    
                     
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Employee
-                        </a>
-                        <ul class="dropdown-menu">
-                                  <li><a class="dropdown-item" href="addemployee.html">ADD EMPLOYEE</a></li>
-                                  <li><a class="dropdown-item" href="deleteemployee.html">DELETE EMP</a></li>
-                                  <li><a class="dropdown-item" href="empviewall.jsp">VIEW ALL</a></li>
-                        </ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="update_task.html">Update Task</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="view_task.html">view Task</a>
                     </li>
                 </ul>
-                    <div class="mx-2">
-                    <a href="adminlogin.html"> <button type="button" class="btn btn-link">LOGOUT</button></a>
-                 
+                <div class="mx-2">
+                   <a href="adminlogin.html"> <button type="button" class="btn btn-link">Logout</button></a>
                 </div>
             </div>
         </div>
     </nav>
-    <br> 
-      <div class="container mt-5">
-    </div>
-    <center>
-        <h1>Admin Panal</h1>
-        <img src="istockphoto-949118068-612x612.jpg" height="500px" width="900px"><br><br>
-        </center>  
     
+    <div id="carouselExampleCaptions" class="carousel slide mt-4 mb-5">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="images/it2.jpg" class="d-block w-100" height="700px" width="900px" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="images/it3.jpg" class="d-block w-100" height="700px" width="900px" alt="...">
+
+            </div>
+            <div class="carousel-item">
+                <img src="images/task.jpg" class="d-block w-100" height="700px" width="900px" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+    </div>
+    <br>
 
     <div class="container my-5 ">
 
@@ -112,8 +110,8 @@ and open the template in the editor.
 
                 <!-- Copyright -->
                 <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-                    © 2020 Copyright:
-                    <a class="text-white" href="#">vaidaibookstore.com</a>
+                    © 2025 Copyright:
+                    <a class="text-white" href="#">Zidio Task Management.com</a>
                 </div>
                 <!-- Copyright -->
             </footer>
@@ -121,8 +119,7 @@ and open the template in the editor.
         </section>
 
     </div>
-
+    <!-- End of .container -->
     <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js " integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL " crossorigin="anonymous "></script>
 </body>
-
 </html>
