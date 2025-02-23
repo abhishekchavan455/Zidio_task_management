@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        export const EmployeeData = [{
+        id: 1,
+        firstName: 'Mark',
+        lastName: 'David',
+        age: 20
+    },
+    {
+        id: 2,
+        firstName: 'Virat',
+        lastName: 'Kohli',
+        age: 34
+    },
+    {
+        id: 3,
+        firstName: 'Rohit',
+        lastName: 'Sharma',
+        age: 35
+    }
+];
+    </body>
+</html>
+
+import React, { useEffect, useState } from 'react';
+import './App.css';
+import { EmployeeData } from './EmployeeData';
+
+function App() {
+    const [data, setData] = useState([]);
+    const [formData, setFormData] = useState({
+        id: '',
+        firstName: '',
+        lastName: '',
+        age: '',
+    });
+
+    const [isEdit, setIsEdit] = useState(false);
+
+    useEffect(() => {
+        setData(EmployeeData);
+    }, []);
+
+    const handleEdit = (id) => {
+        const employee = data.find((item) => item.id === id);
+        setFormData({
+            id: employee.id,
+            firstName: employee.firstName,
+            lastName: employee.lastName,
+            age: employee.age,
+        });
+        setIsEdit(true);
+    };
+
+    const handleDelete = (id) => {
+        if (id > 0) {
+            if (window.confirm('Are you sure to delete the data?')) {
+                const dt = data.filter((item) => item.id !== id);
+                setData(dt);
+            }
+        }
+    };
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prevState) => ({
+            ...prevState,
+            [name]: value,
+        }));
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        if (isEdit) {
+            // Update the existing employee
+            const updatedData = data.map((item) =>
+                item.id === formData.id ? formData : item
+            );
+            setData(updatedData);
+            setIsEdit(false);
+        } else {
+            // Add new employee
+            const newEmployee = {
+                ...formData,
+                id: data.length + 1, // Assign a new ID based on the list length
+            };
+            setData([...data, newEmployee]);
+        }
+
+        // Clear the form data
+        setFormData({
+            id: '',
+            firstName: '',
+            lastName: '',
+            age: '',
+        });
+    };
+
+    return (
+        <div className="App">
+            <h1>Employee List</h1>
+            <form onSubmit={handleSubmit}>
+                <input
+                    type="text"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                    placeholder="First Name"
+                    required
+                />
+                <input
+                    type="text"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleChange}
+                    placeholder="Last Name"
+                    required
+                />
+                <input
+                    type="number"
+                    name="age"
+                    value={formData.age}
+                    onChange={handleChange}
+                    placeholder="Age"
+                    required
+                />
+                <button type="submit" className="btn btn-primary">
+                    {isEdit ? 'Update' : 'Add Employee'}
+                </button>
+            </form>
+
+            <table className="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Sr.No</th>
+                        <th>Id</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Age</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {data.map((item, index) => {
+                        return (
+                            <tr key={index}>
+                                <td>{index + 1}</td>
+                                <td>{item.id}</td>
+                                <td>{item.firstName}</td>
+                                <td>{item.lastName}</td>
+                                <td>{item.age}</td>
+                                <td>
+                                    <button
+                                        className="btn btn-primary"
+                                        onClick={() => handleEdit(item.id)}
+                                    >
+                                        Edit
+                                    </button>
+                                    &nbsp;
+                                    <button
+                                        className="btn btn-danger"
+                                        onClick={() => handleDelete(item.id)}
+                                    >
+                                        Delete
+                                    </button>
+                                </td>
+                            </tr>
+                        );
+                    })}
+                </tbody>
+            </table>
+        </div>
+    );
+}
+
+export default App;
+
